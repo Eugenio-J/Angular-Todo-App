@@ -1,0 +1,23 @@
+<h2>✅ Todo App</h2>
+
+<div>
+  <input [(ngModel)]="newTodo" placeholder="Enter a todo" />
+  <button (click)="addTodo()">➕ Add</button>
+  <span style="color: red">{{ errorMessage }}</span>
+</div>
+
+<ul>
+  <li *ngFor="let todo of todos; let i = index">
+    <div *ngIf="editingIndex === i; else displayTodo">
+      <input [(ngModel)]="editedTodo" />
+      <button (click)="saveEdit(i)">💾 Save</button>
+      <button (click)="cancelEdit()">❌ Cancel</button>
+    </div>
+
+    <ng-template #displayTodo>
+      <span [class.completed]="todo.isComplete">{{ todo.title }}</span>
+      <button (click)="startEdit(i)">✏️ Edit</button>
+      <button (click)="removeTodo(i)">🗑️ Delete</button>
+    </ng-template>
+  </li>
+</ul>

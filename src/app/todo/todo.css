@@ -1,0 +1,18 @@
+.todo-container {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #f9f9f9;
+}
+
+input {
+  padding: 6px;
+  margin-right: 6px;
+}
+
+button {
+  margin-left: 6px;
+  cursor: pointer;
+}
