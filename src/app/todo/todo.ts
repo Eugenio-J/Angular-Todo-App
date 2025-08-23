@@ -3,11 +3,11 @@ import { Todoservice, TodoClass } from '../services/todoservice';
 import { FormsModule } from '@angular/forms'; // 👈 Import FormsModule
 import { CommonModule } from '@angular/common'; // 👈 Import CommonModule
 import { TodoItem } from '../todo-item/todo-item'; // 👈 Import CommonModule
-import { single } from 'rxjs';
 
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.html',
+  standalone: true,
   imports: [FormsModule, CommonModule, TodoItem],
   styleUrl: './todo.css'
 })
@@ -15,7 +15,7 @@ export class Todo implements OnInit{
   todos: TodoClass[] = [];
   newTodo: string = '';
   editingIndex: number | null = null;
-  singleTodo: TodoClass | null = null;
+  singleTodo: TodoClass = { id: 0, title: '', isComplete: false };
   errorMessage: string = '';
 
   constructor(private todoService: Todoservice) {}
@@ -67,7 +67,7 @@ export class Todo implements OnInit{
       this.todos[i] = todo;
       this.editingIndex = null;
     });
-    this.singleTodo = null;
+    this.singleTodo = { id: 0, title: '', isComplete: false };
   }
 
   cancelEdit() {

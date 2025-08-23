@@ -1,5 +1,5 @@
 <div *ngIf="editingIndex === index; else displayTodo">
-      <input [(ngModel)]="singleTodo.title" />
+      <input placeholder="title" [(ngModel)]="singleTodo.title" />
       <button (click)="onUpdate(index)">💾 Save</button>
       <button (click)="onCancelEdit()">❌ Cancel</button>
 </div>
@@ -9,3 +9,4 @@
       <button (click)="onStartEdit(index)">✏️ Edit</button>
       <button (click)="onDelete()">🗑️ Delete</button>
     </ng-template>
+

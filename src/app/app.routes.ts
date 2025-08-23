@@ -1,3 +1,17 @@
 import { Routes } from '@angular/router';
 
-export const routes: Routes = [];
+import {Todo} from '../app/todo/todo'
+import {SingleTodo} from '../app/single-todo/single-todo'
+
+export const routes: Routes = [
+    {
+        path: 'task-all',
+        component: Todo,
+        title: 'All Task'
+    },
+    {
+        path: 'single-task',
+        component: SingleTodo,
+        title: 'Single To Do'        
+    },
+];

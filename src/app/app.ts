@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, RouterLink } from '@angular/router';
 import { Todo } from './todo/todo';
 import { FormsModule } from '@angular/forms';   // 👈 add this
 import { NgModule } from '@angular/core';
@@ -7,8 +7,9 @@ import { NgModule } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  imports: [Todo, FormsModule], // 👈 import the todo component
-  template: '<app-todo></app-todo>',  
+  imports: [RouterLink, RouterOutlet, Todo, FormsModule], // 👈 import the todo component
+  templateUrl: './app.html',  
+  styleUrl: './app.css'
 })
 
 export class App {
