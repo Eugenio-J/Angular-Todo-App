@@ -6,7 +6,7 @@
 
     <ng-template #displayTodo>
       <span [class.completed]="todoitem.isComplete">{{ todoitem.title }}</span>
-      <button (click)="onStartEdit(index)">✏️ Edit</button>
+      <button class="mx-3" (click)="onStartEdit(index)">✏️ Edit</button>
       <button (click)="onDelete()">🗑️ Delete</button>
     </ng-template>
 

@@ -7,10 +7,10 @@ export const routes: Routes = [
     {
         path: 'task-all',
         component: Todo,
-        title: 'All Task'
+        title: 'All Task',
     },
     {
-        path: 'single-task',
+        path: 'single-task/:id',
         component: SingleTodo,
         title: 'Single To Do'        
     },

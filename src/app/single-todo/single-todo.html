@@ -1,1 +1,4 @@
-<p>Hello from single todo component</p>
+      <input placeholder="title" [(ngModel)]="todo.title" />
+      <button (click)="saveEdit(todo.id)">💾 Save</button>
+      <button (click)="cancelEdit()">❌ Cancel</button>
+    

@@ -1,14 +1,15 @@
-import { Component, signal, OnInit } from '@angular/core';
+import { Component, signal, OnInit, inject } from '@angular/core';
 import { Todoservice, TodoClass } from '../services/todoservice';
 import { FormsModule } from '@angular/forms'; // 👈 Import FormsModule
 import { CommonModule } from '@angular/common'; // 👈 Import CommonModule
 import { TodoItem } from '../todo-item/todo-item'; // 👈 Import CommonModule
+import { RouterOutlet, RouterLink, Router } from '@angular/router';
 
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.html',
   standalone: true,
-  imports: [FormsModule, CommonModule, TodoItem],
+  imports: [FormsModule, CommonModule, TodoItem, RouterOutlet],
   styleUrl: './todo.css'
 })
 export class Todo implements OnInit{
@@ -17,6 +18,7 @@ export class Todo implements OnInit{
   editingIndex: number | null = null;
   singleTodo: TodoClass = { id: 0, title: '', isComplete: false };
   errorMessage: string = '';
+  private router = inject(Router);
 
   constructor(private todoService: Todoservice) {}
 
@@ -53,6 +55,8 @@ export class Todo implements OnInit{
   }
 
   startEdit(i: number) {
+    const todo = { ...this.todos[i], title: this.singleTodo.title };
+    this.router.navigate(['/single-task', todo.id]);
     this.editingIndex = i;
     this.singleTodo = this.todos[i];
   }

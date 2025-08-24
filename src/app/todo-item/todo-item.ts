@@ -2,11 +2,12 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { TodoClass } from '../services/todoservice';
 import { FormsModule } from '@angular/forms'; // 👈 Import FormsModule
 import { CommonModule, NgOptimizedImage } from '@angular/common'; // 👈 Import CommonModule
+import { RouterOutlet, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-todo-item',
   templateUrl: './todo-item.html',
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, RouterLink],
   styleUrl: './todo-item.css'
 })
 export class TodoItem {
