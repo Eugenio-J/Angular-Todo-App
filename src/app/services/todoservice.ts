@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 export interface TodoClass {
   id: number;
   title: string;
-  isComplete: boolean;
+  isCompleted: boolean;
 }
 
 @Injectable({
@@ -19,6 +19,7 @@ export class Todoservice {
 
   getTodos(): Observable<TodoClass[]> {
     return this.http.get<TodoClass[]>(`${this.apiUrl}/get-all-task`);
+       
   }
 
  getSingleTodo(index: number): Observable<TodoClass> {
@@ -32,6 +33,10 @@ export class Todoservice {
 
   updateTodo(todo: TodoClass): Observable<number> {
     return this.http.put<number>(`${this.apiUrl}/update-task?taskId=${todo.id}`, todo);
+  }
+
+   updateStatus(id: number): Observable<number> {
+    return this.http.put<number>(`${this.apiUrl}/update-status?taskId=${id}`, null);
   }
 
   deleteTodo(id: number): Observable<void> {

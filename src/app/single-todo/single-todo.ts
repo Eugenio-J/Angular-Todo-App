@@ -2,10 +2,12 @@ import { Component, inject } from '@angular/core';
 import { RouterOutlet, ActivatedRoute, Router  } from '@angular/router';
 import { Todoservice, TodoClass } from '../services/todoservice';
 import { FormsModule } from '@angular/forms'; // 👈 Import FormsModule
-import { CommonModule, NgOptimizedImage } from '@angular/common'; // 👈 Import CommonModule
+import { CommonModule } from '@angular/common'; // 👈 Import CommonModule
+import { LucideAngularModule } from 'lucide-angular';
+
 @Component({
   selector: 'app-single-todo',
-  imports: [FormsModule, CommonModule, RouterOutlet],
+  imports: [FormsModule, CommonModule, RouterOutlet, LucideAngularModule],
   templateUrl: './single-todo.html',
   styleUrl: './single-todo.css'
 })
@@ -40,6 +42,10 @@ export class SingleTodo {
     if (!this.todo?.title.trim()) return;
 
     this.todoService.updateTodo(this.todo).subscribe((todo) => {
+      if(todo != 0)
+        {
+          this.cancelEdit();
+        }
     });
   }
 

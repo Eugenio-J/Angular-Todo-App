@@ -13,7 +13,7 @@ import { RouterOutlet, RouterLink } from '@angular/router';
 export class TodoItem {
     @Input() todoitem!: TodoClass;
     @Input() editingIndex: number | null = null;
-    @Input() singleTodo: TodoClass = { id: 0, title: '', isComplete: false };
+    @Input() singleTodo: TodoClass = { id: 0, title: '', isCompleted: false };
     @Input() index!: number;
     @Output() updateTask = new EventEmitter<number>();
     @Output() deleteTask = new EventEmitter<void>();

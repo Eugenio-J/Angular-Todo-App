@@ -13,4 +13,5 @@ import { NgModule } from '@angular/core';
 
 export class App {
   protected readonly title = signal('to-do');
+
 }
